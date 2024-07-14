@@ -7,42 +7,42 @@ document.addEventListener('DOMContentLoaded', () => {
   let items = [];
 
   addButton.addEventListener('click', () => {
-      const itemText = itemInput.value.trim();
-      if (itemText !== '') {
-          const newItem = {
-              text: itemText,
-              purchased: false
-          };
-          items.push(newItem);
-          addItemToDOM(newItem);
-          itemInput.value = '';
-      }
+    const itemText = itemInput.value.trim();
+    if (itemText !== '') {
+     const newItem = {
+     text: itemText,
+     purchased: false
+    };
+     items.push(newItem);
+     addItemToDOM(newItem);
+     itemInput.value = '';
+    }
   });
 
   clearButton.addEventListener('click', () => {
-      items = [];
-      shoppingList.innerHTML = '';
+    items = [];
+    shoppingList.innerHTML = '';
   });
 
   function addItemToDOM(item) {
-      const listItem = document.createElement('li');
+    const listItem = document.createElement('li');
       
-      const itemText = document.createElement('span');
-      itemText.textContent = item.text;
-      if (item.purchased) {
-          itemText.classList.add('purchased');
-      }
+    const itemText = document.createElement('span');
+     itemText.textContent = item.text;
+     if (item.purchased) {
+      itemText.classList.add('purchased');
+    }
       
-      const purchaseButton = document.createElement('button');
-      purchaseButton.textContent = 'Mark Purchased';
-      purchaseButton.addEventListener('click', () => {
-          item.purchased = !item.purchased;
-          itemText.classList.toggle('purchased');
-      });
+    const purchaseButton = document.createElement('button');
+     purchaseButton.textContent = 'Mark Purchased';
+     purchaseButton.addEventListener('click', () => {
+     item.purchased = !item.purchased;
+     itemText.classList.toggle('purchased');
+    });
 
-      listItem.appendChild(itemText);
-      listItem.appendChild(purchaseButton);
-      shoppingList.appendChild(listItem);
+    listItem.appendChild(itemText);
+    listItem.appendChild(purchaseButton);
+    shoppingList.appendChild(listItem);
   }
 });
 
